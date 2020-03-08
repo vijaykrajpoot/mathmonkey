@@ -1,1 +1,22 @@
-# mathmonkey
+# Math Monkey
+
+Simple Math Operation for Kindergarten student developed in JAVA with runs on terminals
+
+
+#Motivation
+
+My Kid doesn't want to open a app or ui because on IPAD or mobile that keyboard pops up. He wants simple and easy.
+
+# Next
+
+Will add WebBased UI soon.
+
+#Usage
+
+Hope you have java and maven installed on your machine.
+
+```go
+mvn clean install from root dir i.e. math-monkey
+
+java -jar math-monkey-operations/target/math-monkey-operatons-1.0.0.jar
+```

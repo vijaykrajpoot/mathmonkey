@@ -13,8 +13,11 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Hello world!
+ *
+ * Main Class to start the process
+ *
  */
+
 @SpringBootApplication
 public class MathOperationApplication implements CommandLineRunner {
 
@@ -30,7 +33,6 @@ public class MathOperationApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
         Console console = System.console();
         MathOperationUtils.clearConsole();
         StringBuilder stringBuilder = new StringBuilder();
@@ -45,28 +47,20 @@ public class MathOperationApplication implements CommandLineRunner {
             String strNum = console.readLine("Enter Valid Option [ 1, 2 or X ]: ");
             if (strNum == null || strNum.isEmpty() || !optionsList.contains(strNum.toUpperCase())) {
                 System.out.println("[" + strNum + "] is not a valid input. ");
-                //System.out.println("\033[1A");
                 System.out.println(Cursor.MOVE_UP_2);
                 continue;
             }
-
             if (strNum.equalsIgnoreCase("X")) {
-                System.out.println();
-                System.out.println();
+                MathOperationUtils.printEmptyLines(2);
                 System.out.println("Thanks!!! Hope you have fun. Bye - Bye....");
                 System.out.println("_______________________________________________");
-                System.out.println();
+                MathOperationUtils.printEmptyLines(1);
                 System.exit(0);
             } else if (strNum.equalsIgnoreCase("1")) {
                 mathMonkeyService.addOperation();
-
             } else if (strNum.equalsIgnoreCase("2")) {
                 mathMonkeyService.addSameNumberOperation();
             }
         }
-
-
     }
-
-
 }
