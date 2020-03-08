@@ -7,6 +7,9 @@
     <groupId>org.vkrajput.mathhmonkey</groupId>
     <artifactId>english-math-parent</artifactId>
     <version>1.0.0</version>
+    <modules>
+        <module>math-monkey-operations</module>
+    </modules>
     <packaging>pom</packaging>
     <name>MathMonkey :: Parent</name>
 
@@ -20,6 +23,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.6.0</version>
         </dependency>
     </dependencies>
 
