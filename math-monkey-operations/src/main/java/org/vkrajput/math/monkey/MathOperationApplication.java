@@ -43,7 +43,7 @@ public class MathOperationApplication implements CommandLineRunner {
 
         while (true) {
             String strNum = console.readLine("Enter Valid Option [ 1, 2 or X ]: ");
-            if ((strNum != null && strNum.length() == 1 && !optionsList.contains(strNum.toUpperCase()))) {
+            if (strNum == null || strNum.isEmpty() || !optionsList.contains(strNum.toUpperCase())) {
                 System.out.println("[" + strNum + "] is not a valid input. ");
                 //System.out.println("\033[1A");
                 System.out.println(Cursor.MOVE_UP_2);
