@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.vkrajput.math.monkey.service.MathMonkeyService;
 import org.vkrajput.math.monkey.utils.MathOperationUtils;
 
-import java.util.Scanner;
+import java.io.Console;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Hello world!
@@ -28,20 +30,37 @@ public class MathOperationApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+        Console console = System.console();
         MathOperationUtils.clearConsole();
         StringBuilder stringBuilder = new StringBuilder();
         System.out.println("Enter Which Operation You want to Play :");
         System.out.println("########################################");
-        System.out.println("1-ADD Two Different numbers");
-        System.out.println("2-ADD Two Same Numbers");
-        Scanner input = new Scanner(System.in);
-        int option=input.nextInt();
-        if (option == 1) {
-            mathMonkeyService.addOperation();
+        System.out.println("1 - ADD Two Different numbers");
+        System.out.println("2 - ADD Two Same Numbers");
+        System.out.println("X - Exit");
+        List<String> optionsList = Arrays.asList(new String[]{"1", "2", "X"});
+
+        while (true) {
+            String strNum = console.readLine("Enter Valid Option [ 1, 2 or X ]: ");
+            strNum = strNum.toUpperCase();
+            if ((strNum != null && strNum.length() == 1 && !optionsList.contains(strNum))) {
+                System.out.println("[" + strNum + "] is not a valid input. ");
+                //System.out.println("\033[1A");
+                System.out.println("\033[3A");
+                continue;
+            }
+
+            if (strNum.equalsIgnoreCase("X")) {
+                System.out.println("Thanks, hope you have fun !!!  Bye - Bye....");
+                System.exit(0);
+            } else if (strNum.equalsIgnoreCase("1")) {
+                mathMonkeyService.addOperation();
+
+            } else if (strNum.equalsIgnoreCase("2")) {
+                mathMonkeyService.addSameNumberOperation();
+            }
         }
-        if(option==2){
-            mathMonkeyService.addSameNumberOperation();
-        }
+
 
     }
 

@@ -3,11 +3,12 @@ package org.vkrajput.math.monkey.service;
 import org.apache.commons.lang3.RandomUtils;
 import org.springframework.stereotype.Component;
 
-import java.util.Scanner;
+import java.io.Console;
 
 @Component
 public class MathMonkeyAddFun {
-    Scanner input = new Scanner(System.in);
+
+    Console input = System.console();
     StringBuilder stringBuilder = new StringBuilder();
 
     void startMathAddFunc() {
@@ -29,10 +30,22 @@ public class MathMonkeyAddFun {
 
     }
 
+    private int getValidInput() {
+        while (true) {
+            String answer = input.readLine();
+            try {
+                return Integer.parseInt(answer);
+            } catch (Exception ex) {
+                continue;
+            }
+        }
+
+    }
+
     private void show(StringBuilder stringBuilder, int num1, int num2) {
         stringBuilder.append(num1).append("\t").append("+").append("\t").append(num2).append("\t").append("=").append("\t");
         System.out.print(stringBuilder.toString());
-        int answer = input.nextInt();
+        int answer = getValidInput();
         if (num1 + num2 == answer) {
             System.out.print("    ==>Good Job!!!");
         } else {

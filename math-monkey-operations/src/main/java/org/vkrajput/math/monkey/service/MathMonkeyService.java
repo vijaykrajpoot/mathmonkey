@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Scanner;
 
 @Service
 @Setter
@@ -19,12 +18,14 @@ public class MathMonkeyService {
     private int subtractElementLowerBound = 10;
 
 
-    public void addOperation(){
+    public void addOperation() {
+        mathMonkeyAddFun.startMathAddFunc();
 
-        mathMonkeyAddFun.startMathAddFunc();;
     }
-    public void addSameNumberOperation(){
-        mathMonkeyAddFun.startMathSameNumberFun();;
+
+    public void addSameNumberOperation() {
+        mathMonkeyAddFun.startMathSameNumberFun();
+
     }
 
     void addNumbers(List<Integer> numberList) {
