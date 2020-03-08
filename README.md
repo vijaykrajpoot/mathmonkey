@@ -20,3 +20,9 @@ mvn clean install
 java -jar math-monkey-operations/target/math-monkey-operatons-1.0.0.jar
 
 ```
+
+# Cursor Location
+``` java
+char escCode = 0x1B;
+System.out.print(String.format("%c[%d;%df",escCode,x,y));
+```
