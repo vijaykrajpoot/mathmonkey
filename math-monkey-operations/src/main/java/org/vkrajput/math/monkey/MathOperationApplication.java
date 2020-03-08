@@ -49,8 +49,6 @@ public class MathOperationApplication implements CommandLineRunner {
                 System.out.println("[" + strNum + "] is not a valid input. ");
                 cursorTo(6, 0);
                 continue;
-            }else {
-                System.out.println("\b\b\b\b\b\b\b\b\b\b");
             }
             if (strNum.equalsIgnoreCase("X")) {
                 printEmptyLines(2);
@@ -59,10 +57,10 @@ public class MathOperationApplication implements CommandLineRunner {
                 printEmptyLines(1);
                 System.exit(0);
             } else if (strNum.equalsIgnoreCase("1")) {
-                cursorTo(10,3);
+                cursorTo(10, 3);
                 mathMonkeyService.addOperation();
             } else if (strNum.equalsIgnoreCase("2")) {
-                cursorTo(10,3);
+                cursorTo(10, 3);
                 mathMonkeyService.addSameNumberOperation();
             }
         }
