@@ -1,0 +1,11 @@
+math :
+    monkey:
+        add:
+           element :
+               lowerboud: 1
+               upperbound : 10
+
+        subtract:
+            element:
+                lowerboud: 1
+                upperbound: 10
