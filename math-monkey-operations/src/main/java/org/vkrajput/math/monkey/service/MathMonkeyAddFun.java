@@ -2,6 +2,7 @@ package org.vkrajput.math.monkey.service;
 
 import org.apache.commons.lang3.RandomUtils;
 import org.springframework.stereotype.Component;
+import org.vkrajput.math.monkey.utils.MathOperationUtils;
 
 import java.io.Console;
 
@@ -45,6 +46,7 @@ public class MathMonkeyAddFun {
     private void show(StringBuilder stringBuilder, int num1, int num2) {
         stringBuilder.append(num1).append("\t").append("+").append("\t").append(num2).append("\t").append("=").append("\t");
         System.out.print(stringBuilder.toString());
+ //       MathOperationUtils.printEmptyLines(2);
         int answer = getValidInput();
         if (num1 + num2 == answer) {
             System.out.print("    ==>Good Job!!!");
@@ -52,7 +54,7 @@ public class MathMonkeyAddFun {
             System.err.print("    ==>Ahhhh :-(");
         }
         System.out.println();
-        System.out.println();
+//        System.out.println();
         stringBuilder.setLength(0);
     }
 }

@@ -5,17 +5,17 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.vkrajput.math.monkey.service.MathMonkeyService;
-import org.vkrajput.math.monkey.utils.Cursor;
 import org.vkrajput.math.monkey.utils.MathOperationUtils;
 
 import java.io.Console;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.vkrajput.math.monkey.utils.MathOperationUtils.cursorTo;
+import static org.vkrajput.math.monkey.utils.MathOperationUtils.printEmptyLines;
+
 /**
- *
  * Main Class to start the process
- *
  */
 
 @SpringBootApplication
@@ -47,18 +47,22 @@ public class MathOperationApplication implements CommandLineRunner {
             String strNum = console.readLine("Enter Valid Option [ 1, 2 or X ]: ");
             if (strNum == null || strNum.isEmpty() || !optionsList.contains(strNum.toUpperCase())) {
                 System.out.println("[" + strNum + "] is not a valid input. ");
-                System.out.println(Cursor.MOVE_UP_2);
+                cursorTo(6, 0);
                 continue;
+            }else {
+                System.out.println("\b\b\b\b\b\b\b\b\b\b");
             }
             if (strNum.equalsIgnoreCase("X")) {
-                MathOperationUtils.printEmptyLines(2);
+                printEmptyLines(2);
                 System.out.println("Thanks!!! Hope you have fun. Bye - Bye....");
                 System.out.println("_______________________________________________");
-                MathOperationUtils.printEmptyLines(1);
+                printEmptyLines(1);
                 System.exit(0);
             } else if (strNum.equalsIgnoreCase("1")) {
+                cursorTo(10,3);
                 mathMonkeyService.addOperation();
             } else if (strNum.equalsIgnoreCase("2")) {
+                cursorTo(10,3);
                 mathMonkeyService.addSameNumberOperation();
             }
         }
