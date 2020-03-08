@@ -1,4 +1,4 @@
-package org.vkrajput.mathhmonkey.service;
+package org.vkrajput.math.monkey.service;
 
 import java.util.LinkedList;
 import java.util.List;

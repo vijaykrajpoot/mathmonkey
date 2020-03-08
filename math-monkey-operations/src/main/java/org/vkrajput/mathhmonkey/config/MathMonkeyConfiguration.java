@@ -5,7 +5,7 @@ import org.springframework.context.annotation.ComponentScans;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan(basePackages="org.vkrajput.mathmonkey" )
+@ComponentScan(basePackages="org.vkrajput.math" )
 
 public class MathMonkeyConfiguration {
 
