@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.vkrajput.math.monkey.service.MathMonkeyService;
+import org.vkrajput.math.monkey.utils.Cursor;
 import org.vkrajput.math.monkey.utils.MathOperationUtils;
 
 import java.io.Console;
@@ -42,16 +43,19 @@ public class MathOperationApplication implements CommandLineRunner {
 
         while (true) {
             String strNum = console.readLine("Enter Valid Option [ 1, 2 or X ]: ");
-            strNum = strNum.toUpperCase();
-            if ((strNum != null && strNum.length() == 1 && !optionsList.contains(strNum))) {
+            if ((strNum != null && strNum.length() == 1 && !optionsList.contains(strNum.toUpperCase()))) {
                 System.out.println("[" + strNum + "] is not a valid input. ");
                 //System.out.println("\033[1A");
-                System.out.println("\033[3A");
+                System.out.println(Cursor.MOVE_UP_2);
                 continue;
             }
 
             if (strNum.equalsIgnoreCase("X")) {
-                System.out.println("Thanks, hope you have fun !!!  Bye - Bye....");
+                System.out.println();
+                System.out.println();
+                System.out.println("Thanks!!! Hope you have fun. Bye - Bye....");
+                System.out.println("_______________________________________________");
+                System.out.println();
                 System.exit(0);
             } else if (strNum.equalsIgnoreCase("1")) {
                 mathMonkeyService.addOperation();
