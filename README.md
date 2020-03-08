@@ -14,8 +14,9 @@ Will add WebBased UI soon.
 
 Hope you have java and maven installed on your machine.
 
-```go
-`mvn clean install` from root dir i.e. math-monkey
+```
+mvn clean install
 
-`java -jar math-monkey-operations/target/math-monkey-operatons-1.0.0.jar`
+java -jar math-monkey-operations/target/math-monkey-operatons-1.0.0.jar
+
 ```
