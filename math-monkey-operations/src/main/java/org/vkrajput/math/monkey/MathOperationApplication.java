@@ -12,7 +12,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.vkrajput.math.monkey.utils.MathOperationUtils.*;
-import static org.vkrajput.math.monkey.utils.MathOperationUtils.printEmptyLines;
 
 /**
  * Main Class to start the process
@@ -35,18 +34,21 @@ public class MathOperationApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Console console = System.console();
         MathOperationUtils.clearConsole();
+
         StringBuilder stringBuilder = new StringBuilder();
-        System.out.println("Enter Which Operation You want to Play :");
-        System.out.println("########################################");
-        System.out.println("1 - ADD Two Different numbers");
-        System.out.println("2 - ADD Two Same Numbers");
-        System.out.println("X - Exit");
+        cursorToWithMessage(3, 10, ("Enter Which Operation You want to Play :"));
+        cursorToWithMessage(4, 10, ("______________________________________"));
+        cursorToWithMessage(5, 10, ("1 - ADD Two Different numbers"));
+        cursorToWithMessage(6, 10, ("2 - ADD Two Same Numbers"));
+        cursorToWithMessage(8, 10, ("X - Exit"));
+        cursorToWithMessage(9, 10, ("______________________________________"));
+        cursorToWithMessage(10, 10, ("Enter Valid Option [ 1, 2 or X ]: "));
         List<String> optionsList = Arrays.asList(new String[]{"1", "2", "X"});
 
         while (true) {
-            String strNum = console.readLine("Enter Valid Option [ 1, 2 or X ]: ");
+            String strNum = console.readLine();
             if (strNum == null || strNum.isEmpty() || !optionsList.contains(strNum.toUpperCase())) {
-                System.out.println("[" + strNum + "] is not a valid input. ");
+                cursorToWithMessage(11,10,"[" + strNum + "] is not a valid input. ");
                 cursorTo(6, 0);
                 continue;
             }

@@ -25,13 +25,16 @@ public class MathOperationUtils {
         while (true) {
             String answer = input.readLine();
             if (answer.equalsIgnoreCase("x")) {
-                System.out.println("Are you sure you want to exit(Yes/No)? : \r");
-                cursorTo(11, "Are you sure you want to exit(Yes/No)? : ".length());
+                System.out.println();
+                cursorToWithMessage(36, 2, "Are you sure you want to exit(Yes/No)? :");
                 if (optionsList.contains(input.readLine().toLowerCase())) {
-                    System.out.println("Thanks!!! Hope you have fun. Bye - Bye....");
-                    System.out.println("_______________________________________________");
+                    clearTheLine(36);
+                    cursorToWithMessageAndNewLine(36, 4, "Thanks Hope you had fun!!! :");
+                    cursorToWithMessage(37, 4, "_______________________________________________");
                     printEmptyLines(1);
                     System.exit(0);
+                } else {
+                    System.out.println("\r");
                 }
             }
             try {
@@ -40,6 +43,24 @@ public class MathOperationUtils {
                 continue;
             }
         }
+    }
+
+    public static void clearTheLine(int lineNumber) {
+        char escCode = 0x1B;
+        System.out.print(String.format("%c[%d;%df", escCode, lineNumber, 0));
+        System.out.print("\033[2K");
+
+
+    }
+
+    public static void cursorToWithMessageAndNewLine(int x, int y, String message) {
+        char escCode = 0x1B;
+        System.out.println(String.format("%c[%d;%df", escCode, x, y) + message);
+    }
+
+    public static void cursorToWithMessage(int x, int y, String message) {
+        char escCode = 0x1B;
+        System.out.print(String.format("%c[%d;%df", escCode, x, y) + message);
     }
 
     public static void cursorTo(int x, int y) {

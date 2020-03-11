@@ -34,6 +34,7 @@ public class MathMonkeyAddFun {
     }
 
     private void show(StringBuilder stringBuilder, int num1, int num2) {
+
         stringBuilder.append(num1).append("\t").append("+").append("\t").append(num2).append("\t").append("=").append("\t");
         System.out.print(stringBuilder.toString());
         //       MathOperationUtils.printEmptyLines(2);
