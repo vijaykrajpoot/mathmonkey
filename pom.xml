@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.vkrajput.mathhmonkey</groupId>
-    <artifactId>english-math-parent</artifactId>
+    <artifactId>math-monkey-parent</artifactId>
     <version>1.0.0</version>
     <modules>
         <module>math-monkey-operations</module>
