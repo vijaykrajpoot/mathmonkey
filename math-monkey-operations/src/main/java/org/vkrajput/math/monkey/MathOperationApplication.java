@@ -11,7 +11,7 @@ import java.io.Console;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.vkrajput.math.monkey.utils.MathOperationUtils.cursorTo;
+import static org.vkrajput.math.monkey.utils.MathOperationUtils.*;
 import static org.vkrajput.math.monkey.utils.MathOperationUtils.printEmptyLines;
 
 /**
@@ -57,9 +57,13 @@ public class MathOperationApplication implements CommandLineRunner {
                 printEmptyLines(1);
                 System.exit(0);
             } else if (strNum.equalsIgnoreCase("1")) {
+                System.out.println("Here you go! Start having Funnnnnn");
+                System.out.println("_______________________________________________");
                 cursorTo(10, 3);
                 mathMonkeyService.addOperation();
             } else if (strNum.equalsIgnoreCase("2")) {
+                System.out.println("Here you go! Start having Funnnnnn");
+                System.out.println("_______________________________________________");
                 cursorTo(10, 3);
                 mathMonkeyService.addSameNumberOperation();
             }

@@ -2,9 +2,11 @@ package org.vkrajput.math.monkey.service;
 
 import org.apache.commons.lang3.RandomUtils;
 import org.springframework.stereotype.Component;
-import org.vkrajput.math.monkey.utils.MathOperationUtils;
 
 import java.io.Console;
+
+import static org.vkrajput.math.monkey.utils.MathOperationUtils.getValidInput;
+import static org.vkrajput.math.monkey.utils.MathOperationUtils.printEmptyLines;
 
 @Component
 public class MathMonkeyAddFun {
@@ -31,29 +33,17 @@ public class MathMonkeyAddFun {
 
     }
 
-    private int getValidInput() {
-        while (true) {
-            String answer = input.readLine();
-            try {
-                return Integer.parseInt(answer);
-            } catch (Exception ex) {
-                continue;
-            }
-        }
-
-    }
-
     private void show(StringBuilder stringBuilder, int num1, int num2) {
         stringBuilder.append(num1).append("\t").append("+").append("\t").append(num2).append("\t").append("=").append("\t");
         System.out.print(stringBuilder.toString());
- //       MathOperationUtils.printEmptyLines(2);
+        //       MathOperationUtils.printEmptyLines(2);
         int answer = getValidInput();
         if (num1 + num2 == answer) {
-            System.out.print("    ==>Good Job!!!");
+            System.out.print("    ==>Good Job!!! \r");
         } else {
-            System.err.print("    ==>Ahhhh :-(");
+            System.err.print("    ==>Ahhhh :-( \r");
         }
-        System.out.println();
+        //       System.out.println();
 //        System.out.println();
         stringBuilder.setLength(0);
     }
