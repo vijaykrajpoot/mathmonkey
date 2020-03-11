@@ -34,39 +34,39 @@ public class MathOperationApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Console console = System.console();
         MathOperationUtils.clearConsole();
-
+        int row = 10;
         StringBuilder stringBuilder = new StringBuilder();
-        cursorToWithMessage(3, 10, ("Enter Which Operation You want to Play :"));
-        cursorToWithMessage(4, 10, ("______________________________________"));
-        cursorToWithMessage(5, 10, ("1 - ADD Two Different numbers"));
-        cursorToWithMessage(6, 10, ("2 - ADD Two Same Numbers"));
-        cursorToWithMessage(8, 10, ("X - Exit"));
-        cursorToWithMessage(9, 10, ("______________________________________"));
-        cursorToWithMessage(10, 10, ("Enter Valid Option [ 1, 2 or X ]: "));
+        int col = 30;
+        cursorToWithMessage(row++, col, ("Enter Which Operation You want to Play :"));
+        cursorToWithMessage(row++, col, ("______________________________________"));
+        cursorToWithMessage(row++, col, ("1 - ADD Two Different numbers"));
+        cursorToWithMessage(row++, col, ("2 - ADD Two Same Numbers"));
+        cursorToWithMessage(row++, col, ("X - Exit"));
+        cursorToWithMessage(row++, col, ("______________________________________"));
+        cursorToWithMessage(row++, col, ("Enter Valid Option [ 1, 2 or X ]: "));
         List<String> optionsList = Arrays.asList(new String[]{"1", "2", "X"});
 
         while (true) {
             String strNum = console.readLine();
             if (strNum == null || strNum.isEmpty() || !optionsList.contains(strNum.toUpperCase())) {
-                cursorToWithMessage(11,10,"[" + strNum + "] is not a valid input. ");
-                cursorTo(6, 0);
+                cursorToWithMessage(row + 1, col, "[" + strNum + "] is not a valid input. ");
+                cursorTo(--row, "Enter Valid Option [ 1, 2 or X ]: ".length() + col);
+                row++;
                 continue;
             }
             if (strNum.equalsIgnoreCase("X")) {
                 printEmptyLines(2);
-                System.out.println("Thanks!!! Hope you have fun. Bye - Bye....");
-                System.out.println("_______________________________________________");
+                cursorToWithMessage(row++, col, "Thanks!!! Hope you have fun. Bye - Bye....");
+                cursorToWithMessage(row++, col, "_______________________________________________");
                 printEmptyLines(1);
                 System.exit(0);
             } else if (strNum.equalsIgnoreCase("1")) {
-                System.out.println("Here you go! Start having Funnnnnn");
-                System.out.println("_______________________________________________");
-                cursorTo(10, 3);
+                cursorToWithMessage(row++, col, "Here you go! Start having Funnnnnn");
+                cursorToWithMessage(row++, col, "_______________________________________________");
                 mathMonkeyService.addOperation();
             } else if (strNum.equalsIgnoreCase("2")) {
-                System.out.println("Here you go! Start having Funnnnnn");
-                System.out.println("_______________________________________________");
-                cursorTo(10, 3);
+                cursorToWithMessage(row++, col, "Here you go! Start having Funnnnnn");
+                cursorToWithMessage(row++, col, "_______________________________________________");
                 mathMonkeyService.addSameNumberOperation();
             }
         }

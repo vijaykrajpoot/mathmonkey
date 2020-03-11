@@ -1,32 +1,11 @@
-server:
-    address: 0.0.0.0
-    port : 9090
+math :
+    monkey:
+        add:
+            element :
+                lowerboud: 1
+                upperbound : 10
 
-spring:
-    datasource:
-        type: com.zaxxer.hikari.HikariDataSource
-        driver-class-name: com.mysql.cj.jdbc.Driver
-        hikari:
-            connectionTimeout: 30000
-            idleTimeout: 600000
-            maxLifetime: 1800000
-            password: password
-            username: root
-        url: jdbc:mysql://localhost:3306/loyalty
-    jpa:
-        database-platform: org.hibernate.dialect.MySQL5Dialect
-        properties:
-            hibernate:
-                dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-                format_sql: true
-        show-sql: true
-
-
-rules:
-    drools:
-        files:
-            location: /Users/vkumar1/Playstation/loyalty_rewards_rules.drl
-loyalty:
-    points:
-        awards:
-            newloyalist : true
+        subtract:
+            element:
+                lowerboud: 1
+                upperbound: 10
