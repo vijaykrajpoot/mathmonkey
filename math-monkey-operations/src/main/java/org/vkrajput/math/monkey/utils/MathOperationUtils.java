@@ -21,8 +21,9 @@ public class MathOperationUtils {
         }
     }
 
-    public static int getValidInput() {
+    public static int getValidInputAt(int row, int col) {
         while (true) {
+            cursorTo(row, col);
             String answer = input.readLine();
             if (answer.equalsIgnoreCase("x")) {
                 System.out.println();
@@ -33,8 +34,6 @@ public class MathOperationUtils {
                     cursorToWithMessage(37, 4, "_______________________________________________");
                     printEmptyLines(1);
                     System.exit(0);
-                } else {
-                    System.out.println("\r");
                 }
             }
             try {
@@ -47,7 +46,7 @@ public class MathOperationUtils {
 
     public static void clearTheLine(int lineNumber) {
         char escCode = 0x1B;
-        System.out.print(String.format("%c[%d;%df", escCode, lineNumber, 0));
+        cursorTo(lineNumber,0);
         System.out.print("\033[2K");
 
 

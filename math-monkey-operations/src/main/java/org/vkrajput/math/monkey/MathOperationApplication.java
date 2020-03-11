@@ -34,9 +34,15 @@ public class MathOperationApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Console console = System.console();
         MathOperationUtils.clearConsole();
-        int row = 10;
+
+        cursorTo(35, 0);
+        for (int i = 0; i < 150; i++) {
+            System.out.print("_");
+        }
+
+        int row = 5;
         StringBuilder stringBuilder = new StringBuilder();
-        int col = 30;
+        int col = 50;
         cursorToWithMessage(row++, col, ("Enter Which Operation You want to Play :"));
         cursorToWithMessage(row++, col, ("______________________________________"));
         cursorToWithMessage(row++, col, ("1 - ADD Two Different numbers"));
@@ -44,6 +50,7 @@ public class MathOperationApplication implements CommandLineRunner {
         cursorToWithMessage(row++, col, ("X - Exit"));
         cursorToWithMessage(row++, col, ("______________________________________"));
         cursorToWithMessage(row++, col, ("Enter Valid Option [ 1, 2 or X ]: "));
+
         List<String> optionsList = Arrays.asList(new String[]{"1", "2", "X"});
 
         while (true) {
@@ -54,6 +61,7 @@ public class MathOperationApplication implements CommandLineRunner {
                 row++;
                 continue;
             }
+
             if (strNum.equalsIgnoreCase("X")) {
                 printEmptyLines(2);
                 cursorToWithMessage(row++, col, "Thanks!!! Hope you have fun. Bye - Bye....");

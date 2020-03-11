@@ -5,8 +5,8 @@ import org.springframework.stereotype.Component;
 
 import java.io.Console;
 
-import static org.vkrajput.math.monkey.utils.MathOperationUtils.getValidInput;
-import static org.vkrajput.math.monkey.utils.MathOperationUtils.printEmptyLines;
+import static org.vkrajput.math.monkey.utils.MathOperationUtils.*;
+
 
 @Component
 public class MathMonkeyAddFun {
@@ -34,18 +34,17 @@ public class MathMonkeyAddFun {
     }
 
     private void show(StringBuilder stringBuilder, int num1, int num2) {
-
-        stringBuilder.append(num1).append("\t").append("+").append("\t").append(num2).append("\t").append("=").append("\t");
-        System.out.print(stringBuilder.toString());
-        //       MathOperationUtils.printEmptyLines(2);
-        int answer = getValidInput();
+        clearTheLine(15);
+        String str = stringBuilder.append(num1).append(" ").append("+").append(" ").append(num2).append(" ").append("=").append(" ").toString();
+        cursorToWithMessage(15, 50, stringBuilder.toString());
+        int answer = getValidInputAt(15, 50 + str.length() + 2);
+        clearTheLine(36);
+        cursorToWithMessage(15, str.length() + 4, "" + answer);
         if (num1 + num2 == answer) {
-            System.out.print("    ==>Good Job!!! \r");
+            cursorToWithMessage(36, 60, "Good Job - \uD83D\uDE0A");
         } else {
-            System.err.print("    ==>Ahhhh :-( \r");
+            cursorToWithMessage(36, 60, "Ahhh \uD83D\uDE44");
         }
-        //       System.out.println();
-//        System.out.println();
         stringBuilder.setLength(0);
     }
 }
