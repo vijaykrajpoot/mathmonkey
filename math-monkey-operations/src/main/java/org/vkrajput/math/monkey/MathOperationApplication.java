@@ -35,7 +35,7 @@ public class MathOperationApplication implements CommandLineRunner {
         Console console = System.console();
         MathOperationUtils.clearConsole();
 
-        cursorTo(35, 0);
+        cursorTo(33, 0);
         for (int i = 0; i < 150; i++) {
             System.out.print("_");
         }
@@ -64,17 +64,17 @@ public class MathOperationApplication implements CommandLineRunner {
 
             if (strNum.equalsIgnoreCase("X")) {
                 printEmptyLines(2);
-                cursorToWithMessage(row++, col, "Thanks!!! Hope you have fun. Bye - Bye....");
-                cursorToWithMessage(row++, col, "_______________________________________________");
+                cursorToWithMessage(row++, col+10, "Thanks!!! Hope you have fun. Bye - Bye....");
+                cursorToWithMessage(row++, col+10, "_______________________________________________");
                 printEmptyLines(1);
                 System.exit(0);
             } else if (strNum.equalsIgnoreCase("1")) {
-                cursorToWithMessage(row++, col, "Here you go! Start having Funnnnnn");
+                cursorToWithMessage(row++, col+10, "Here you go! Start having Funnnnnn");
                 cursorToWithMessage(row++, col, "_______________________________________________");
                 mathMonkeyService.addOperation();
             } else if (strNum.equalsIgnoreCase("2")) {
-                cursorToWithMessage(row++, col, "Here you go! Start having Funnnnnn");
-                cursorToWithMessage(row++, col, "_______________________________________________");
+                cursorToWithMessage(row++, col+10, "Here you go! Start having Funnnnnn");
+                cursorToWithMessage(row++, col+10, "_______________________________________________");
                 mathMonkeyService.addSameNumberOperation();
             }
         }

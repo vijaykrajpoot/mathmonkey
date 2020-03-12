@@ -26,11 +26,10 @@ public class MathOperationUtils {
             cursorTo(row, col);
             String answer = input.readLine();
             if (answer.equalsIgnoreCase("x")) {
-                System.out.println();
                 cursorToWithMessage(36, 2, "Are you sure you want to exit(Yes/No)? :");
                 if (optionsList.contains(input.readLine().toLowerCase())) {
                     clearTheLine(36);
-                    cursorToWithMessageAndNewLine(36, 4, "Thanks Hope you had fun!!! :");
+                    cursorToWithMessage(36, 4, "Thanks Hope you had fun!!! :");
                     cursorToWithMessage(37, 4, "_______________________________________________");
                     printEmptyLines(1);
                     System.exit(0);
@@ -46,7 +45,7 @@ public class MathOperationUtils {
 
     public static void clearTheLine(int lineNumber) {
         char escCode = 0x1B;
-        cursorTo(lineNumber,0);
+        cursorTo(lineNumber, 0);
         System.out.print("\033[2K");
 
 
